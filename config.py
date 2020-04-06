@@ -5,9 +5,10 @@ import tokens
 token_telebot = tokens.telebot
 DATABASE_STATE = 'state.vdb'
 DATABASE_USERS = 'users.db'
+DATABASE_ROLES = 'role.vdb'
 
 
-class States(Enum):
+class Roles(Enum):
     """
     Состояния регламентируются тремя цифрами. Первая цифра показывает уровень доступа
     0 - гость, 1 - зарегистрировавшийся, 2 - админ
@@ -16,14 +17,10 @@ class States(Enum):
     Третья цифра резервная
     """
     # Гость
-    NEW = '000'
-    N_REG = '010'
-    N_CALENDAR = '030'
+    GUEST = 0
     # Юзер
-    U_CAB = '120'
-    U_CALENDAR = '130'
+    USER = 1
     # Admin
-    A_CAB = '220'
-    A_CALENDAR = '230'
+    ADMIN = 2
 
 

@@ -42,6 +42,11 @@ def start_message(message):
 
 @bot.callback_query_handler(func=lambda call: call.data == 'to_cal')
 def cal_menu(call):
+    """
+    Выводим пользователю список всех запланированных на будущее походов.
+    :param call:
+    :return:
+    """
     # TODO изучить https://github.com/unmonoqueteclea/calendar-telegram
     res = 'Я пока хз, как здесь выводить ближайшие или прошедшие мероприятия'
     bot.send_message(call.message.chat.id, res)
@@ -49,6 +54,12 @@ def cal_menu(call):
 
 @bot.callback_query_handler(func=lambda call: call.data == 'to_lc')
 def profile_menu(call):
+    """
+    Показываем пользователю личный кабинет.
+    Пользователь видит кнопки "Мои походы", "Мой рейтинг" и "В главное меню"
+    :param call:
+    :return:
+    """
     bot.delete_message(chat_id=call.message.chat.id,
                        message_id=call.message.message_id)
     kb = tb.types.InlineKeyboardMarkup()
